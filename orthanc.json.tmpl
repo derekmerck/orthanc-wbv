@@ -1,0 +1,27 @@
+{
+  "name":  "{{getv "/name" "Orthanc"}}",
+  "title": "{{getv "/title" "ORTHANC"}}",
+{{- if gets "/peers/*"}}
+  "OrthancPeers": {
+	{{- range $i, $v := gets "/peers/*" }}
+		{{- if gt $i 0}},{{end}}
+        {{- $k := split $v.Key "/"}}
+    "{{index $k 2}}": [{{range $i, $vv := split $v.Value ","}}{{if $i}}, {{end}}"{{$vv}}"{{end}}]
+	{{- end}}
+  },
+{{- end}}
+  "RegisteredUsers": {
+	{{- range $i, $v := gets "/users/*" }}
+		{{- if gt $i 0}},{{end}}
+        {{- $k := split $v.Key "/"}}
+    "{{index $k 2}}": "{{$v.Value}}"
+	{{- end }}
+  },
+  "RemoteAccessAllowed" : {{getv "RemoteAccess" "true"}},
+  "AuthenticationEnabled": true,
+  "Plugins": ["/usr/share/orthanc/plugins"],
+  "UserMetadata" : {
+    "Provenance" : 34543,
+    "Hashes": 34544
+  }
+}

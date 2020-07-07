@@ -1,0 +1,10 @@
+[template]
+prefix = "/orthanc"
+src = "orthanc.json.tmpl"
+dest = "/etc/orthanc/orthanc.json"
+keys = [
+    "/name",
+    "/aet",
+    "/users",
+    "/peers",
+]
