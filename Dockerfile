@@ -16,8 +16,8 @@ COPY bootstrap.sh /usr/local/bin/bootstrap.sh
 RUN chmod +x /usr/local/bin/bootstrap.sh
 
 RUN mkdir -p /usr/share/orthanc/plugins
-# RUN wget http://orthanc.osimis.io/lsb/plugin-osimis-webviewer/releases/1.3.1/libOsimisWebViewer.so --output-document /usr/share/orthanc/plugins/libOsimisWebViewer.so
-COPY libOsimisWebViewer.so /usr/share/orthanc/plugins/
+RUN wget http://orthanc.osimis.io/lsb/plugin-osimis-webviewer/releases/1.3.1/libOsimisWebViewer.so --output-document /usr/share/orthanc/plugins/libOsimisWebViewer.so
+#COPY libOsimisWebViewer.so /usr/share/orthanc/plugins/
 RUN chmod +x /usr/share/orthanc/plugins/*
 
 ENTRYPOINT /usr/local/bin/bootstrap.sh
