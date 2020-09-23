@@ -13,7 +13,7 @@ Docker image from the latest [Orthanc][] including [confd][] for configuration m
 ## Basic Usage
 
 ```bash
-$ docker run -d -p 8042:8042 derekmerck/orthanc-cwbv
+$ docker run --rm -d -p 8042:8042 derekmerck/orthanc-cwbv
 ```
 
 ## Warning
